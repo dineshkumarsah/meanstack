@@ -1,0 +1,45 @@
+
+    <mat-card>
+        <mat-card-header> 
+           <mat-card-title>Family Details</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <ngx-datatable class="material"
+             [rows]="rows" 
+             [limit]="4"
+             [columnMode]="'force'" 
+             [headerHeight]="50"
+             [footerHeight]="50" 
+             [rowHeight]="50" 
+             [scrollbarV]="false" 
+             [sorts]="[{prop: 'name', dir: 'desc'}]">
+                <ngx-datatable-column name="Id">
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.id}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Father">
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.father}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Son">
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.son}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Daughter">
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        {{row.daughter}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Action">
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        <i class="pb-icon icon-edit"></i>
+                        <a class="material-icons md-36" (click)="delete(row.id)" onmouseover="" style="cursor: pointer;">delete_forever</a>
+                    </ng-template>
+                </ngx-datatable-column>
+               
+            </ngx-datatable>
+        </mat-card-content>
+    </mat-card>

@@ -1,0 +1,44 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "father": "Rajesh",
+      "son": "Aanand",
+      "daughter": "Mala,sonam,ragani"
+    },
+    {
+      "id": 3,
+      "father": "Rajesh",
+      "son": "Aanand",
+      "daughter": "Mala,sonam,ragani"
+    },
+    {
+      "id": 2,
+      "father": "Rajesh",
+      "son": "Aanand",
+      "daughter": "Mala,sonam,ragani"
+    },
+    {
+      "id": 2,
+      "father": "Rajesh",
+      "son": "Aanand",
+      "daughter": "Mala,sonam,ragani"
+    },
+    {
+      "id": 2,
+      "father": "Rajesh",
+      "son": "Aanand",
+      "daughter": "Mala,sonam,ragani"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
