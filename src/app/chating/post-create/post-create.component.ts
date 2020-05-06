@@ -18,7 +18,7 @@ export class PostCreateComponent{
     }
     onAddPost(Form:NgForm){
         this.createPostService.addPost(Form.value.enterTitle,Form.value.enterContent);
-        Form.reset();
+        Form.resetForm();
         
     }
 }
