@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParse = require('body-parser');
 const Post = require('./models/post');
-mongoose.connect('mongodb+srv://dineshbhumca:WNh6d2RrHPjhVFWs@cluster0-1pofh.mongodb.net/node-angular?retryWrites=true&w=majority/posts',
+mongoose.connect('mongodb+srv://dineshbhumca:WNh6d2RrHPjhVFWs@cluster0-1pofh.mongodb.net/node-angular?retryWrites=true&w=majority',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -31,23 +31,46 @@ app.post('/api/posts', (req, res) => {
     title: req.body.title,
     content: req.body.content
   });
-  post.save()
-  res.status(201).json({
-    message: 'Updated Successfully'
+  post.save().then(createdPost=>{
+   let id = createdPost._id;
+   res.status(201).json({
+    message: 'Updated Successfully',
+    id:id
   });
+  })
+  
 
 })
-app.use("/api/posts", (req, res, next) => {
-  Post.find().then((document) => {
-    res.status(200).json({
-      message: "post fatch sucessfull",
-      posts: document
-    });
+// app.use("/api/posts", (req, res, next) => {
+//   Post.find().then((document) => {
+//     res.status(200).json({
+//       message: "post fatch sucessfull",
+//       posts: document
+//     });
 
-  })
+//   })
+ 
+// }
+// );
+// app.use((req, res, next) => {
+//   res.send('hello from express');
+//   next();
+// });
+app.get("/api/posts", (req, res, next) => {
+  Post.find().then(documents => {
+    res.status(200).json({
+      message: "Posts fetched successfully!",
+      posts: documents
+    });
+  });
 });
-app.use((req, res, next) => {
-  res.send('hello from express')
+
+app.delete("/api/posts/:id", (req, res, next) => {
+  Post.deleteOne({ _id: req.params.id }).then(result => {
+    console.log(result);
+    res.status(200).json({ message: "Post deleted!" });
+  });
 });
+
 
 module.exports = app;
