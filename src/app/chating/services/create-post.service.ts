@@ -39,7 +39,7 @@ export class CreatePostService {
     this.httpClient.post<{message: string,postId: string}>("http://localhost:3000/api/posts",post).
     subscribe((responseData)=>{
 
-      const id=responseData.postId;
+      const id = responseData['id'];
       post.id=id;
        this.posts.push(post);
        this.postUpdated.next([...this.posts]);
@@ -56,8 +56,5 @@ export class CreatePostService {
         console.log('deleted sucessfuly');
         
       });
-      //  const updatedPost = this.posts.filter(post=>post.id !== postId);
-      //   this.posts = updatedPost; 
-      //   this.postUpdated.next([...this.posts]);
   }
 }
