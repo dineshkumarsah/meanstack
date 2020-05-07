@@ -1,13 +1,30 @@
+<div class="top-margin">
+
 <app-header></app-header>
-<main>
+<main >
     <mat-card>
-        <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+        <form (submit)="onSavePost(postForm)" #postForm="ngForm">
             <mat-form-field>
-                <input matInput type="text" required ngModel name="enterTitle" #title="ngModel" placeholder="Entet title">
+                <input matInput 
+                type="text"
+                [ngModel]="post?.title"
+                required 
+                name="enterTitle" 
+                #title="ngModel" 
+                placeholder="Entet title"
+                >
                 <mat-error *ngIf="title.invalid">Please enter the title</mat-error>
             </mat-form-field>
             <mat-form-field>
-                <textarea matInput rows="6" required ngModel name='enterContent'#content="ngModel"  placeholder="Entet content"></textarea  >
+                <textarea 
+                matInput 
+                rows="6" 
+                [ngModel]="post?.content"
+                required 
+                name='enterContent'
+                #content="ngModel"  
+                placeholder="Entet content">
+               </textarea  >
                     <mat-error *ngIf="content.invalid">Please enter some content</mat-error>
             </mat-form-field><br />
             <button mat-raised-button  [disabled]="postForm.invalid" color="success" type="submit" >POST SAVE</button>
@@ -15,5 +32,6 @@
         
     </mat-card>
     <br/>
-    <app-post-list ></app-post-list>
+    <!-- <app-post-list ></app-post-list> -->
 </main>
+</div>

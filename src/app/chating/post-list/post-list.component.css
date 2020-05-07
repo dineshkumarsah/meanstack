@@ -1,3 +1,11 @@
 .info-text{
     text-align: center;
 }
+.top-margin{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.content{
+    margin-top: 10px;
+}

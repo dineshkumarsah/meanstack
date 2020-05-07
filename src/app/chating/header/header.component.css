@@ -1,0 +1,24 @@
+.top-margin {
+    margin-top: 10px;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+li {
+    float: left;
+    width: 150px;
+    margin-right: 5px;
+    padding: 2px;
+    text-align: center;
+}
+a{
+    text-decoration:none;
+    color: white;
+}
+.spacer{
+    flex: 1 1 auto;
+}

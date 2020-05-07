@@ -14,17 +14,18 @@ import {HttpClientModule} from '@angular/common/http'
 import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { CommonModule } from '@angular/common';
-import { CreatePostService } from './services/create-post.service';
+import { PostsService } from './services/create-post.service';
+import {ChatingComponent} from '../chating/chating.component'
 
 
 
 @NgModule({
-    declarations : [PostCreateComponent,HeaderComponent,PostListComponent],
+    declarations : [PostCreateComponent,HeaderComponent,PostListComponent,ChatingComponent],
     imports : [ChatingRoutingModule,FormsModule,MatIconModule,MatSidenavModule,MatSidenavModule,
         MatListModule,MatButtonModule,MatInputModule,MatCardModule,MatToolbarModule,
         CommonModule,HttpClientModule,
     MatExpansionModule],
-    providers : [CreatePostService],
+    providers : [PostsService],
     bootstrap : []
 })
 
